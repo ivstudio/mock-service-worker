@@ -1,28 +1,90 @@
-import React from 'react';
+import { useEffect, useState } from 'react';
 
-import Button from '@/components/Button';
+import {
+    List,
+    ListHead,
+    ListItemLink,
+    ListLabelItem,
+    ListLabels,
+    ListRow,
+    NoDataMessage,
+} from './components/List';
+import { Spinner } from './components/Spinner';
+import { Issue, Label } from './types/openIssues.type';
+
+const fetchOpenIssues = async (): Promise<Issue[]> => {
+    const url = 'https://api.github.com/repos/facebook/react/issues';
+    try {
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error(`Req failed: ${response.status}`);
+        }
+        const data: Issue[] = await response.json();
+        return data;
+    } catch (err) {
+        console.error(err);
+        return [];
+    }
+};
 
 const App = () => {
-    const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-        console.log('handleClick:', e.currentTarget.textContent);
-    };
+    const [openIssues, setOpenIssues] = useState<Issue[]>([]);
+    const [isLoading, setIsLoading] = useState<boolean>(true);
+    useEffect(() => {
+        const loadIssues = async () => {
+            try {
+                const data = await fetchOpenIssues();
+                setOpenIssues(data);
+            } catch (err) {
+                console.error('Error fetching issues:', err);
+                setOpenIssues([]);
+            } finally {
+                setIsLoading(false);
+            }
+        };
+
+        loadIssues();
+    }, []);
+
+    if (isLoading) {
+        return <Spinner />;
+    }
 
     return (
-        <main className="mx-auto flex min-h-screen flex-col items-center justify-center bg-neutral-800">
-            <h1 className="mb-4 text-5xl font-extrabold tracking-tight text-white md:text-6xl lg:text-8xl">
-                Starter
-                <span className="bg-gradient-to-b from-[#5EA2EF] to-[#0072F5] bg-clip-text text-transparent">
-                    {' '}
-                    Template
-                </span>
-            </h1>
-            <p className="mb-14 max-w-[320px] text-center text-base font-light text-slate-400 md:max-w-full md:text-lg lg:text-xl">
-                A starter template with React, TypeScript, Tailwind CSS, and
-                Webpack.
-            </p>
-            <Button onClick={handleClick} type="button">
-                Get Started
-            </Button>
+        <main className="pt-8">
+            {openIssues.length ? (
+                <List>
+                    <ListHead title="Open Issues" />
+                    <ListRow>
+                        {openIssues.map((issue: Issue) => (
+                            <ListItemLink
+                                key={issue.id}
+                                subText={`#${issue.number} opened by ${issue.user.login}`}
+                                title={issue.title}
+                                url={issue.url}
+                            >
+                                <ListLabels>
+                                    {issue.labels?.length
+                                        ? issue.labels.map((label: Label) => (
+                                              <ListLabelItem
+                                                  key={label.id}
+                                                  label={label.name}
+                                                  style={{
+                                                      color: `#${label.color}`,
+                                                      backgroundColor: `#${label.color}20`,
+                                                      borderColor: `#${label.color}50`,
+                                                  }}
+                                              />
+                                          ))
+                                        : null}
+                                </ListLabels>
+                            </ListItemLink>
+                        ))}
+                    </ListRow>
+                </List>
+            ) : (
+                <NoDataMessage message="No open issues found." />
+            )}
         </main>
     );
 };
