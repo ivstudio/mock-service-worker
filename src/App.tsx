@@ -51,13 +51,14 @@ const App = () => {
     }
 
     return (
-        <main className="pt-8">
+        <main className="h-full bg-black pt-8">
             {openIssues.length ? (
                 <List>
                     <ListHead title="Open Issues" />
                     <ListRow>
                         {openIssues.map((issue: Issue) => (
                             <ListItemLink
+                                data-testid="issue-item"
                                 key={issue.id}
                                 subText={`#${issue.number} opened by ${issue.user.login}`}
                                 title={issue.title}
