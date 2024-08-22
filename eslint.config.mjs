@@ -1,5 +1,6 @@
 import pluginJs from '@eslint/js';
 import eslintConfigPrettier from 'eslint-config-prettier';
+import pluginJest from 'eslint-plugin-jest';
 import pluginReact from 'eslint-plugin-react';
 import simpleImportSort from 'eslint-plugin-simple-import-sort';
 import tailwind from 'eslint-plugin-tailwindcss';
@@ -28,6 +29,7 @@ export default [
     {
         plugins: {
             'simple-import-sort': simpleImportSort,
+            jest: pluginJest,
         },
         settings: {
             tailwindcss: {
@@ -122,6 +124,7 @@ export default [
             'react/react-in-jsx-scope': 'off',
             'react/jsx-one-expression-per-line': 'off',
             'react/prop-types': 'off',
+            'jest/no-identical-title': 'error',
         },
     },
 ];
