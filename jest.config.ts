@@ -9,7 +9,8 @@ export default {
     coverageDirectory: 'coverage',
 
     // The test environment that will be used for testing
-    testEnvironment: 'jsdom',
+    // https://mswjs.io/docs/faq/#requestresponsetextencoder-is-not-defined-jest
+    testEnvironment: 'jest-fixed-jsdom',
 
     // An array of file extensions your modules use
     moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
@@ -27,4 +28,8 @@ export default {
 
     // Whether to use watchman for file crawling
     watchman: false,
+
+    testEnvironmentOptions: {
+        customExportConditions: [''],
+    },
 };
