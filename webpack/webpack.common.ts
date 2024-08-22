@@ -25,7 +25,7 @@ const commonConfig: webpack.Configuration = {
             {
                 test: /\.[jt]sx?$/,
                 use: 'babel-loader',
-                exclude: /node_modules/,
+                exclude: /node_modules|src\/mocks/,
             },
             {
                 test: /\.module\.css$/,
