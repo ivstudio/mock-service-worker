@@ -51,7 +51,7 @@ const App = () => {
     }
 
     return (
-        <main className="h-full bg-black pt-8">
+        <main className="pt-8">
             {openIssues.length ? (
                 <List>
                     <ListHead title="Open Issues" />
