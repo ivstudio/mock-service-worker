@@ -1,7 +1,7 @@
 import { setupServer } from 'msw/node';
 
+import { handlers, handlersFail } from '../mocks/handlers';
 import App from './App';
-import { handlers, handlersFail } from './mocks/handlers';
 import { render, waitFor } from './tests/testingUtils';
 
 const server = setupServer(...handlers);

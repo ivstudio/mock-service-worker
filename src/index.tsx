@@ -14,7 +14,7 @@ const root = ReactDOM.createRoot(document.getElementById('root')!);
         More details: https://mswjs.io/docs/integrations/browser
     */
     if (process.env.NODE_ENV === 'development') {
-        const { isMockServiceEnabled } = await import('./mocks/browser');
+        const { isMockServiceEnabled } = await import('../mocks/browser');
         await isMockServiceEnabled();
     }
 
