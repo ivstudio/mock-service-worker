@@ -1,6 +1,7 @@
 {
     "name": "react-typescript-tailwindcss-webpack5-starter",
-    "version": "1.0.0",
+    "version": "1.0.1",
+    "private": true,
     "description": "React 18, TypeScript, Tailwind CSS, and Webpack 5 starter template.",
     "keywords": [
         "react 18",
@@ -10,6 +11,7 @@
         "starter"
     ],
     "license": "MIT",
+    "homepage": "https://ivstudio.github.io/mock-server-worker",
     "author": {
         "name": "Ignacio Villamar",
         "email": "iggy@ivstudio.com",
@@ -26,7 +28,9 @@
         "lint:debug": "eslint ./src --debug",
         "lint:fix": "eslint ./src --fix",
         "prepare": "husky",
-        "dev:mock": "MOCK_SERVICE_WORKER=true npm run dev"
+        "dev:mock": "MOCK_SERVICE_WORKER=true npm run dev",
+        "predeploy": "npm run build",
+        "deploy": "gh-pages -d build"
     },
     "dependencies": {
         "react": "^18.3.1",
@@ -64,6 +68,7 @@
         "eslint-plugin-simple-import-sort": "^12.1.1",
         "eslint-plugin-tailwindcss": "^3.17.4",
         "file-loader": "^6.2.0",
+        "gh-pages": "^6.1.1",
         "globals": "^15.9.0",
         "html-webpack-plugin": "^5.6.0",
         "husky": "^9.1.4",
