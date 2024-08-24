@@ -1,59 +1,35 @@
-# React 18, TypeScript, Tailwind CSS, and Webpack 5 starter template
+# API Mocking in JavaScript using Mock Service Worker
 
-Starter template using React 18, TypeScript, TailwindCSS, and Webpack 5, optimized for seamless development and efficient production builds.
+This repository showcases a Mock Service Worker (MSW) v2 setup in a React environment, seamlessly integrated with Jest and React Testing Library. The configuration allows MSW to intercept API calls during development and unit testing, offering comprehensive control and flexibility throughout the development process.
 
-<a href="https://twitter.com/ivstudio"><img src="https://img.shields.io/twitter/follow/ivstudio.svg?style=social&label=Follow&maxAge=3600" height="20"></a>
 
-## Tech Stack
+[View the project](https://ivstudio.github.io/mock-server-worker/)
 
-- [React 18](https://reactjs.org/)
-- [TypeScript](https://www.typescriptlang.org/)
-- [TailwindCSS](https://tailwindcss.com/)
-- [Webpack 5](https://webpack.js.org/)
-- [ESLint](https://eslint.org/)
-- [Prettier](https://prettier.io/)
-- [Jest](https://jestjs.io/)
-- [Testing Library](https://testing-library.com/docs/react-testing-library/intro/)  
 
-### Requirements
+## Key Features
 
-- Before starting, ensure you have [Node.js](https://nodejs.org/) v22.x or later and npm installed.
+- [Detailed article](https://www.ivstudio.com/blog/mock-service-worker) providing a step-by-step explanation of the implementation process.
+- Configuration of handlers, setupWorker, and setupServer for API mocking.
+- On-demand API interception during development using MSW's browser integration.
+- API interception in Jest and React Testing Library environments using MSW's Node.js integration.
 
-## Getting Started
 
-1. Clone project or click use this template
-2. `npm install`
-3. `npm start`
+### Tech Stack
 
-## Production 🚀
+- [Mock Service Worker (MSW)](https://mswjs.io/) for API mocking
+- [Jest](https://jestjs.io/) for unit testing
+- [React Testing Library](https://testing-library.com/) for component testing
+- [React](https://react.dev/) 
 
-The production build generates an optimized output in the `dist/` directory, ready for deployment. To build the project for production, run:  
-`npm run build`  
+### Getting Started
 
-## Testing
+1. Clone the repository
+2. Install dependencies: `npm install`
+3. Run the mock API: `npm run dev:mock`
+4. Start the development server: `npm run dev`
 
-- Run all the tests in the project.  
-`npm run test`
+### Testing
 
-- Generate a code coverage report.  
-`npm run coverage`
+To run all tests, use the following command: `npm run test`
 
-- Analyze bundle size during the build process to identify potential optimizations.  
-`npm run analyze`
 
-## Coding Standards
-
-- Lints the code with ESLint to check for errors and enforce standards.  
-`npm run lint`
-
-- Format the code with Prettier, following specified style guidelines.  
-`npm run format`  
-
-## Pre-commit Hook
-
-Husky is used to run pre-commit hooks to ensure code quality before commits.  
-Modify the hook as needed by editing the `.husky/pre-commit` file.
-
----
-
-<p align="center"><sup>Made with ♥ by <a href="https://ivstudio.com">ivstudio</a></sup></p>
