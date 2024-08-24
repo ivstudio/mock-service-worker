@@ -3,7 +3,7 @@
 This repository showcases a Mock Service Worker (MSW) v2 setup in a React environment, seamlessly integrated with Jest and React Testing Library. The configuration allows MSW to intercept API calls during development and unit testing, offering comprehensive control and flexibility throughout the development process.
 
 
-[View the project](https://ivstudio.github.io/mock-server-worker/)
+[View the project](https://ivstudio.github.io/mock-service-worker/)
 
 
 ## Key Features
@@ -31,5 +31,3 @@ This repository showcases a Mock Service Worker (MSW) v2 setup in a React enviro
 ### Testing
 
 To run all tests, use the following command: `npm run test`
-
-
