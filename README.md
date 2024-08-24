@@ -19,7 +19,7 @@ This repository showcases a Mock Service Worker (MSW) v2 setup in a React enviro
 - [Mock Service Worker (MSW)](https://mswjs.io/) for API mocking
 - [Jest](https://jestjs.io/) for unit testing
 - [React Testing Library](https://testing-library.com/) for component testing
-- [React](https://react.dev/) 
+- [React](https://react.dev/) for building the UI
 
 ### Getting Started
 
