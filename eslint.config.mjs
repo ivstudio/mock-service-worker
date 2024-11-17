@@ -125,6 +125,10 @@ export default [
             'react/jsx-one-expression-per-line': 'off',
             'react/prop-types': 'off',
             'jest/no-identical-title': 'error',
+            '@typescript-eslint/no-unused-expressions': [
+                'error',
+                { allowShortCircuit: true, allowTernary: true },
+            ],
         },
     },
 ];
