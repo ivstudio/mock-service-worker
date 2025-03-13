@@ -1,10 +1,12 @@
 import path from 'path';
+import { fileURLToPath } from 'url';
 import webpack from 'webpack';
 import { merge } from 'webpack-merge';
 
 import 'webpack-dev-server';
 
-import commonConfig from './webpack.common';
+import commonConfig from './webpack.common.ts';
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const isMSW = process.env.MOCK_SERVICE_WORKER === 'true';
 
