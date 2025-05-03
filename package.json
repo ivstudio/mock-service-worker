@@ -11,6 +11,7 @@
         "starter"
     ],
     "license": "MIT",
+    "type": "module",
     "homepage": "https://ivstudio.github.io/mock-server-worker",
     "author": {
         "name": "Ignacio Villamar",
@@ -21,7 +22,7 @@
         "dev": "webpack serve --config webpack/webpack.dev.ts",
         "test": "jest",
         "analyze": "ANALYZE=true npm run build",
-        "build": "NODE_OPTIONS=--loader=ts-node/esm webpack --config webpack.config.mjs",
+        "build": "NODE_OPTIONS='--loader ts-node/esm' npx webpack --config webpack/webpack.prod.ts",
         "coverage": "jest --coverage",
         "format": "prettier --write src",
         "lint": "eslint ./src",
