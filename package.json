@@ -53,7 +53,7 @@
         "@types/jest": "^29.5.14",
         "@types/node": "^22.15.21",
         "@types/react": "^19.1.4",
-        "@types/react-dom": "^19.1.2",
+        "@types/react-dom": "^19.1.5",
         "@types/webpack-bundle-analyzer": "^4.7.0",
         "autoprefixer": "^10.4.20",
         "babel-loader": "^10.0.0",
